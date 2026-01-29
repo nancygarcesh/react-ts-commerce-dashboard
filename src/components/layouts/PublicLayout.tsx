@@ -1,6 +1,8 @@
 import { Outlet, Link } from "react-router-dom";
+import { useCart } from "../../context/CartContext";
 
 const PublicLayout = () => {
+  const { state } = useCart();
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header */}
@@ -27,6 +29,10 @@ const PublicLayout = () => {
             >
               Dashboard
             </Link>
+            <Link to="/cart">
+              Cart ({state.items.length})
+            </Link>
+
           </nav>
         </div>
       </header>

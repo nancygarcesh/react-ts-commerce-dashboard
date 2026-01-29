@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import type { Product } from "../../types/product.types";
 import { getProducts } from "../../services/products.service";
+import { useCart } from "../../context/CartContext";
 
 const Products = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
+  const { addToCart } = useCart();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -52,6 +54,12 @@ const Products = () => {
                 {product.stock > 0 ? "En stock" : "Agotado"}
               </span>
             </div>
+            <button
+              onClick={() => addToCart(product)}
+              className="mt-3 w-full bg-gray-900 text-white py-2 rounded hover:bg-gray-700"
+            >
+              Agregar al carrito
+            </button>
           </div>
         ))}
       </div>

@@ -8,6 +8,7 @@ import ProductDetail from "../pages/ecommerce/ProductDetail";
 
 import DashboardHome from "../pages/dashboard/DashboardHome";
 import DashboardProducts from "../pages/dashboard/DashboardProducts";
+import Cart from "../pages/ecommerce/Cart";
 
 const AppRouter = () => {
   return (
@@ -18,6 +19,7 @@ const AppRouter = () => {
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
           <Route path="/products/:id" element={<ProductDetail />} />
+          <Route path="/cart" element={<Cart />} />
         </Route>
 
         {/* Para: DASHBOARD */}
