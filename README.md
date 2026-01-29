@@ -1,73 +1,88 @@
-# React + TypeScript + Vite
+# TechStore 🛒
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Plataforma de e-commerce profesional construida con **React**, **TypeScript** y **Tailwind CSS**, que simula un flujo completo de compra, incluyendo catálogo de productos, carrito de compras y dashboard administrativo.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 Descripción
 
-## React Compiler
+TechStore es un proyecto de demostración de un e-commerce moderno con las siguientes características:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Visualización de productos con imágenes, descripción, precio y stock.
+- Detalles de cada producto con botón de **agregar al carrito**.
+- Carrito de compras dinámico con gestión de cantidades y cálculo de total.
+- Dashboard administrativo para ver métricas del inventario y gestionar productos.
+- Checkout simulado con resumen de compra profesional.
+- Estilo minimalista y profesional inspirado en diseño escandinavo/nórdico.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠 Tecnologías usadas
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Frontend:** React + TypeScript  
+- **Estilos:** Tailwind CSS  
+- **Routing:** React Router DOM  
+- **Estado global:** React Context (para el carrito)  
+- **Mock API:** Archivos locales (`products.service.ts`)  
+- **Construcción:** Vite  
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🗂 Estructura del proyecto
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+src/
+├── app/
+│ └── router.tsx # Configuración de rutas
+├── components/
+│ └── layout/
+│ ├── PublicLayout.tsx # Layout público
+│ └── DashboardLayout.tsx# Layout dashboard
+├── pages/
+│ ├── ecommerce/
+│ │ ├── Home.tsx # Página principal
+│ │ ├── Products.tsx # Listado de productos
+│ │ ├── ProductDetail.tsx # Detalle del producto
+│ │ └── Cart.tsx # Carrito de compras
+│ └── dashboard/
+│ ├── DashboardHome.tsx # Overview de dashboard
+│ └── DashboardProducts.tsx # Gestión de productos
+├── context/
+│ └── CartContext.tsx # Contexto para carrito
+├── services/
+│ └── products.service.ts # Mock API
+└── types/
+└── product.types.ts # Tipos de TypeScript
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## ⚡ Funcionalidades principales
+
+### Home
+- Presentación profesional con hero image y llamada a la acción.
+- Botón “Explorar Productos” para ir al catálogo.
+
+### Products
+- Listado de productos con imágenes, stock y precio.
+- Botón **Agregar al carrito**.
+- Filtro de disponibilidad mediante colores (verde = en stock, rojo = agotado).
+
+### Product Detail
+- Página individual de producto.
+- Detalles completos: imagen, descripción, precio y stock.
+- Botón de **agregar al carrito** deshabilitado si está agotado.
+
+### Cart
+- Visualización de todos los productos agregados.
+- Cantidad editable, total calculado dinámicamente.
+- Botón **Checkout** para proceder a compra simulada.
+- Botón **Vaciar carrito**.
+
+### Dashboard
+- **DashboardHome:** métricas del inventario (total, en stock, agotados, precio promedio).
+- **DashboardProducts:** tabla editable de productos con botones **Editar** y **Eliminar**.
+
+---
+
+
+
