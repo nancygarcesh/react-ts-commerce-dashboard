@@ -8,7 +8,7 @@ export const productsMock: Product[] = [
     description: "Camiseta oficial con logo de React",
     price: 19.99,
     category: "Ropa",
-    image: "https://via.placeholder.com/150",
+    image: "https://m.media-amazon.com/images/I/61DvdP1n-lL.jpg",
     stock: 10,
   },
   {
@@ -17,7 +17,7 @@ export const productsMock: Product[] = [
     description: "Taza con logo de JS",
     price: 12.5,
     category: "Accesorios",
-    image: "https://via.placeholder.com/150",
+    image: "https://paraprogramadores.cl/wp-content/uploads/2023/10/Taza_javaScript_1.jpg",
     stock: 25,
   },
   {
@@ -26,7 +26,7 @@ export const productsMock: Product[] = [
     description: "Mochila con estampado de Tailwind CSS",
     price: 45.0,
     category: "Accesorios",
-    image: "https://via.placeholder.com/150",
+    image: "https://miro.medium.com/0*1veDl0TQjcXKKSZf.png",
     stock: 5,
   },
 ];
@@ -36,6 +36,17 @@ export const getProducts = async (): Promise<Product[]> => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(productsMock);
-    }, 500); //simulamos tardanza
+    }, 500); //simulamos retraso
+  });
+
+};
+
+//simular carga de producto por ID
+export const getProductById = async (id: string | number): Promise<Product | null> => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const product = productsMock.find((p) => p.id === Number(id)) || null;
+      resolve(product);
+    }, 500); //simulamos retraso
   });
 };

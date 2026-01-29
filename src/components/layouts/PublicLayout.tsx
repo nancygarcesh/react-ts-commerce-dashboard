@@ -2,19 +2,45 @@ import { Outlet, Link } from "react-router-dom";
 
 const PublicLayout = () => {
   return (
-    <>
-      <header style={{ padding: "1rem", borderBottom: "1px solid #ccc" }}>
-        <nav style={{ display: "flex", gap: "1rem" }}>
-          <Link to="/">Home</Link>
-          <Link to="/products">Products</Link>
-          <Link to="/dashboard">Dashboard</Link>
-        </nav>
+    <div className="min-h-screen flex flex-col">
+      {/* Header */}
+      <header className="bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 text-white shadow-lg">
+        <div className="max-w-7xl mx-auto flex justify-between items-center py-4 px-6">
+          <h1 className="text-2xl font-bold drop-shadow-lg">TechStore</h1>
+
+          <nav className="flex gap-6">
+            <Link
+              to="/"
+              className="hover:text-indigo-300 transition-colors duration-200 font-semibold"
+            >
+              Home
+            </Link>
+            <Link
+              to="/products"
+              className="hover:text-indigo-300 transition-colors duration-200 font-semibold"
+            >
+              Products
+            </Link>
+            <Link
+              to="/dashboard"
+              className="hover:text-indigo-300 transition-colors duration-200 font-semibold"
+            >
+              Dashboard
+            </Link>
+          </nav>
+        </div>
       </header>
 
-      <main style={{ padding: "1rem" }}>
+      {/* Main Content */}
+      <main className="flex-1 p-0">
         <Outlet />
       </main>
-    </>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-gray-300 text-center py-4 mt-auto">
+        © 2026 TechStore. Innovación al alcance de tu mano.
+      </footer>
+    </div>
   );
 };
 
