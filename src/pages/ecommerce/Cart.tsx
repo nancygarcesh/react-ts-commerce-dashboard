@@ -1,4 +1,5 @@
 import { useCart } from "../../context/CartContext";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const { state, removeFromCart, clearCart } = useCart();
@@ -13,11 +14,17 @@ const Cart = () => {
       <div className="min-h-screen flex items-center justify-center bg-neutral-100">
         <div className="text-center">
           <h1 className="text-xl font-semibold text-neutral-800 mb-2">
-            Your cart is empty
+            Tu carrito está vacío
           </h1>
           <p className="text-neutral-500">
-            Add products to begin your purchase.
+            Agrega productos para comenzar tu compra.
           </p>
+          <Link
+            to="/products"
+            className="inline-block mt-4 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg shadow transition-all duration-300"
+          >
+            Explorar Productos
+          </Link>
         </div>
       </div>
     );
@@ -29,7 +36,7 @@ const Cart = () => {
         {/* Items */}
         <div className="md:col-span-2 bg-white border border-neutral-200 rounded-xl">
           <h1 className="text-xl font-semibold px-6 py-5 border-b border-neutral-200">
-            Shopping Cart
+            Carrito de Compras
           </h1>
 
           <div className="divide-y divide-neutral-100">
@@ -50,7 +57,7 @@ const Cart = () => {
                       {item.product.title}
                     </h2>
                     <p className="text-sm text-neutral-500">
-                      Quantity: {item.quantity}
+                      Cantidad: {item.quantity}
                     </p>
                   </div>
                 </div>
@@ -64,7 +71,7 @@ const Cart = () => {
                     onClick={() => removeFromCart(item.product.id)}
                     className="text-sm text-neutral-500 hover:text-neutral-900 transition"
                   >
-                    Remove
+                    Eliminar
                   </button>
                 </div>
               </div>
@@ -73,8 +80,8 @@ const Cart = () => {
         </div>
 
         {/* Summary */}
-        <div className="bg-white border border-neutral-200 rounded-xl p-6 h-fit">
-          <h2 className="text-lg font-semibold mb-6">Summary</h2>
+        <div className="bg-white border border-neutral-200 rounded-xl p-6 h-fit flex flex-col">
+          <h2 className="text-lg font-semibold mb-6">Resumen</h2>
 
           <div className="flex justify-between mb-3 text-neutral-600">
             <span>Subtotal</span>
@@ -82,7 +89,7 @@ const Cart = () => {
           </div>
 
           <div className="flex justify-between mb-6 text-neutral-600">
-            <span>Taxes</span>
+            <span>Impuestos</span>
             <span>$0.00</span>
           </div>
 
@@ -91,15 +98,19 @@ const Cart = () => {
             <span>${total.toFixed(2)}</span>
           </div>
 
-          <button className="w-full mt-6 bg-neutral-900 text-white py-3 rounded-lg font-medium hover:bg-neutral-800 transition">
-            Checkout
-          </button>
+          {/* Botón de Checkout */}
+          <Link
+            to="/checkout"
+            className="w-full mt-6 bg-indigo-600 text-white py-3 rounded-lg font-medium hover:bg-indigo-700 shadow-lg text-center transition-all duration-300"
+          >
+            Proceder al Pago
+          </Link>
 
           <button
             onClick={clearCart}
             className="w-full mt-3 border border-neutral-300 py-3 rounded-lg font-medium text-neutral-700 hover:bg-neutral-100 transition"
           >
-            Clear cart
+            Vaciar carrito
           </button>
         </div>
       </div>
