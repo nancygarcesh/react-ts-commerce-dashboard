@@ -21,36 +21,43 @@ const DashboardHome = () => {
   }, []);
 
   return (
-    <div className="bg-gray-50 min-h-screen p-6">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">Dashboard Overview</h1>
+    <div className="min-h-screen bg-neutral-100 p-10">
+      <div className="max-w-7xl mx-auto">
+        <h1 className="text-2xl font-semibold tracking-tight text-neutral-900 mb-10">
+          Dashboard Overview
+        </h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-        {/* Total Products */}
-        <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow">
-          <h2 className="text-gray-500 font-semibold">Total Products</h2>
-          <p className="text-2xl font-bold text-indigo-600 mt-2">{totalProducts}</p>
-        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Card */}
+          <StatCard label="Total Products" value={totalProducts} />
 
-        {/* In Stock */}
-        <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow">
-          <h2 className="text-gray-500 font-semibold">In Stock</h2>
-          <p className="text-2xl font-bold text-green-600 mt-2">{inStock}</p>
-        </div>
+          <StatCard label="In Stock" value={inStock} />
 
-        {/* Out of Stock */}
-        <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow">
-          <h2 className="text-gray-500 font-semibold">Out of Stock</h2>
-          <p className="text-2xl font-bold text-red-600 mt-2">{outOfStock}</p>
-        </div>
+          <StatCard label="Out of Stock" value={outOfStock} />
 
-        {/* Average Price */}
-        <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow">
-          <h2 className="text-gray-500 font-semibold">Average Price</h2>
-          <p className="text-2xl font-bold text-indigo-600 mt-2">
-            ${averagePrice.toFixed(2)}
-          </p>
+          <StatCard
+            label="Average Price"
+            value={`$${averagePrice.toFixed(2)}`}
+          />
         </div>
       </div>
+    </div>
+  );
+};
+
+const StatCard = ({
+  label,
+  value,
+}: {
+  label: string;
+  value: number | string;
+}) => {
+  return (
+    <div className="bg-white border border-neutral-200 rounded-xl p-7 hover:shadow-md transition-shadow duration-200">
+      <p className="text-sm text-neutral-500 font-medium">{label}</p>
+      <p className="text-3xl font-semibold text-neutral-900 mt-3">
+        {value}
+      </p>
     </div>
   );
 };

@@ -2,32 +2,83 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 text-white flex flex-col justify-center items-center px-6">
-      {/* Hero Section */}
-      <div className="max-w-4xl text-center">
-        <h1 className="text-5xl sm:text-6xl font-extrabold mb-6 drop-shadow-lg">
-          Bienvenido a <span className="text-indigo-400">TechStore</span>
-        </h1>
-        <p className="text-lg sm:text-xl text-gray-200 mb-8 drop-shadow-md">
-          Explora productos innovadores y tecnología de punta. Compra rápido, seguro y moderno.
-        </p>
-        <Link
-          to="/products"
-          className="inline-block bg-indigo-500 hover:bg-indigo-600 text-white font-semibold px-8 py-4 rounded-lg shadow-lg transition-all duration-300"
-        >
-          Explorar Productos
-        </Link>
+    <div className="min-h-screen bg-neutral-100 text-neutral-900">
+      <div className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-16 items-center">
+        {/* Text Section */}
+        <div>
+          <p className="uppercase tracking-widest text-sm text-neutral-500 mb-4">
+            Premium Technology Store
+          </p>
+
+          <h1 className="text-5xl md:text-6xl font-semibold leading-tight mb-8">
+            Technology designed
+            <br />
+            for modern life
+          </h1>
+
+          <p className="text-neutral-600 text-lg mb-10 max-w-xl">
+            Discover carefully curated products focused on performance,
+            simplicity and timeless design. A professional digital commerce
+            experience built with modern frontend architecture.
+          </p>
+
+          <div className="flex gap-4">
+            <Link
+              to="/products"
+              className="bg-neutral-900 text-white px-8 py-4 rounded-lg font-medium hover:bg-neutral-800 transition"
+            >
+              Browse products
+            </Link>
+
+            <Link
+              to="/dashboard"
+              className="border border-neutral-300 px-8 py-4 rounded-lg font-medium hover:bg-neutral-200 transition"
+            >
+              View dashboard
+            </Link>
+          </div>
+        </div>
+
+        {/* Image Section */}
+        <div className="relative">
+          <img
+            src="https://images.unsplash.com/photo-1519389950473-47ba0277781c"
+            alt="Modern workspace"
+            className="rounded-2xl shadow-xl w-full h-[420px] object-cover"
+          />
+
+          <div className="absolute -bottom-6 -right-6 bg-white border border-neutral-200 rounded-xl p-6 shadow-lg">
+            <p className="text-sm text-neutral-500">Trusted by teams</p>
+            <p className="text-2xl font-semibold">+12,000 users</p>
+          </div>
+        </div>
       </div>
 
-      {/* Imagery / Tech Illustration */}
-      <div className="mt-16 w-full max-w-4xl mx-auto">
-        <img
-          src="https://www.randstad.es/wp-content/uploads/2016/08/tecnologia-futuro-y-nuevos-empleos-880.jpg"
-          alt="Tecnología futurista"
-          className="rounded-xl shadow-2xl w-full h-64 sm:h-80 md:h-96 object-cover"
-        />
-      </div>
+      {/* Bottom Section */}
+      <div className="border-t border-neutral-200">
+        <div className="max-w-7xl mx-auto px-6 py-12 grid sm:grid-cols-3 gap-8 text-center">
+          <div>
+            <h3 className="font-semibold mb-2">Fast delivery</h3>
+            <p className="text-neutral-600 text-sm">
+              Reliable logistics and instant order tracking.
+            </p>
+          </div>
 
+          <div>
+            <h3 className="font-semibold mb-2">Secure payments</h3>
+            <p className="text-neutral-600 text-sm">
+              Industry-standard encrypted checkout.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-semibold mb-2">Premium support</h3>
+            <p className="text-neutral-600 text-sm">
+              Real humans ready to help 24/7.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
