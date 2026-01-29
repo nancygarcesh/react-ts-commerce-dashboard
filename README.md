@@ -1,10 +1,10 @@
-# TechStore 🛒
+# TechStore 
 
 > Plataforma de e-commerce profesional construida con **React**, **TypeScript** y **Tailwind CSS**, que simula un flujo completo de compra, incluyendo catálogo de productos, carrito de compras y dashboard administrativo.
 
 ---
 
-## 📌 Descripción
+##  Descripción
 
 TechStore es un proyecto de demostración de un e-commerce moderno con las siguientes características:
 
@@ -17,7 +17,7 @@ TechStore es un proyecto de demostración de un e-commerce moderno con las sigui
 
 ---
 
-## 🛠 Tecnologías usadas
+##  Tecnologías usadas
 
 - **Frontend:** React + TypeScript  
 - **Estilos:** Tailwind CSS  
@@ -28,7 +28,7 @@ TechStore es un proyecto de demostración de un e-commerce moderno con las sigui
 
 ---
 
-## 🗂 Estructura del proyecto
+##  Estructura del proyecto
 
 src/
 ├── app/
@@ -56,7 +56,7 @@ src/
 
 ---
 
-## ⚡ Funcionalidades principales
+##  Funcionalidades principales
 
 ### Home
 - Presentación profesional con hero image y llamada a la acción.
