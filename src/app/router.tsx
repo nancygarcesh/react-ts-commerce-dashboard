@@ -1,6 +1,6 @@
 import { HashRouter, Routes, Route } from "react-router-dom";
-import PublicLayout from "../components/layout/PublicLayout";
-import DashboardLayout from "../components/layout/DashboardLayout";
+import PublicLayout from "../components/layouts/PublicLayout";
+import DashboardLayout from "../components/layouts/DashboardLayout";
 
 import Home from "../pages/ecommerce/Home";
 import Products from "../pages/ecommerce/Products";
@@ -13,14 +13,14 @@ const AppRouter = () => {
   return (
     <HashRouter>
       <Routes>
-        {/* ECOMMERCE */}
+        {/* Para: ECOMMERCE */}
         <Route element={<PublicLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
           <Route path="/products/:id" element={<ProductDetail />} />
         </Route>
 
-        {/* DASHBOARD */}
+        {/* Para: DASHBOARD */}
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route index element={<DashboardHome />} />
           <Route path="products" element={<DashboardProducts />} />
