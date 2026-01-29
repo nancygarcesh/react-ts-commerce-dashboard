@@ -12,12 +12,15 @@ const Products = () => {
       setProducts(data);
       setLoading(false);
     };
-
     fetchProducts();
   }, []);
 
   if (loading) {
-    return <p className="text-center mt-10 text-gray-500">Cargando productos...</p>;
+    return (
+      <p className="text-center mt-10 text-gray-500 text-lg">
+        Cargando productos...
+      </p>
+    );
   }
 
   return (
@@ -41,7 +44,9 @@ const Products = () => {
               <span className="font-bold text-indigo-600">${product.price}</span>
               <span
                 className={`text-sm font-medium px-2 py-1 rounded ${
-                  product.stock > 0 ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"
+                  product.stock > 0
+                    ? "bg-green-100 text-green-700"
+                    : "bg-red-100 text-red-700"
                 }`}
               >
                 {product.stock > 0 ? "En stock" : "Agotado"}
